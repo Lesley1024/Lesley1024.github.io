@@ -14,7 +14,8 @@
 			@include padding(5em, 5em);
 			border-top: solid 1px _palette(invert, border);
 
-			&:first-child {
+			&:first-child,
+			&:nth-child(2) {
 				border-top: 0;
 			}
 
