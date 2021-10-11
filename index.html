@@ -29,9 +29,8 @@
       <nav id="nav">
         <ul>
           <li><a href="#intro" class="active">專案簡介</a></li>
-          <li><a href="#videos">教學影片</a></li>
+          <li><a href="#lesson">教學影片</a></li>
           <li><a href="#about-us">關於我們</a></li>
-          <!-- <li><a href="#cta">Get Started</a></li> -->
         </ul>
       </nav>
 
@@ -40,7 +39,7 @@
         <!-- Banner -->
         <section id="banner" class="main">
           <span class="image main" style="margin-bottom: 0;">
-            <img src="images/pic04.jpeg" alt="banner" />
+            <img src="images/pic04.jpg" alt="banner" />
           </span>
         </section>
 
@@ -49,49 +48,67 @@
           <header class="major">
             <h2>專案簡介</h2>
             <p>
-              Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-              posuere. Nulla massa urna, fermentum eget quam aliquet.
+              我是簡單的文案我是簡單的文案我是簡單的文案
             </p>
           </header>
-          <!-- <footer class="major">
-				<ul class="actions special">
-					<li>
-						<a href="generic.html" class="button primary">Get Started</a>
-					</li>
-					<li><a href="generic.html" class="button">Learn More</a></li>
-				</ul>
-			</footer> -->
         </section>
-        <!-- <section id="intro" class="main">
-          <div class="spotlight">
-            <div class="content">
-              <header class="major">
-                <h2>專案簡介</h2>
-              </header>
-              <p>
-                Sed lorem ipsum dolor sit amet nullam consequat feugiat
-                consequat magna adipiscing magna etiam amet veroeros. Lorem
-                ipsum dolor tempus sit cursus. Tempus nisl et nullam lorem ipsum
-                dolor sit amet aliquam.
-              </p>
-              <ul class="actions">
-                <li><a href="generic.html" class="button">Learn More</a></li>
-              </ul>
+
+        <!-- Lesson Section -->
+        <section id="lesson" class="main special">
+          <header class="major">
+            <h2>教學影片</h2>
+            <p>
+              我是簡單的文案我是簡單的文案我是簡單的文案我是簡單的文案我是簡單的文案我是簡單的文案<br />
+              我是簡單的文案我是簡單的文案我是簡單的文案
+            </p>
+          </header>
+          <div class="content">
+            <div class="row">
+              <!-- Lesson Item List -->
+              <div class="col-6 col-12-medium" v-for="lesson in lessons">
+                <section class="box basic">
+                  <div class="video-container">
+                    <iframe
+                      v-bind:src="lesson.url.video"
+                      width="560"
+                      height="315"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                  <a v-bind:href="lesson.url.detail">
+                    <h3>
+                      {{ lesson.title }}
+                    </h3>
+                    <p>
+                      {{ lesson.subTitle }}
+                    </p>
+                  </a>
+
+                  <ul class="actions special">
+                    <li>
+                      <a v-bind:href="lesson.url.detail" class="button alt">
+                        了解更多
+                      </a>
+                    </li>
+                  </ul>
+                </section>
+              </div>
             </div>
-            <span class="image"><img src="images/pic01.jpg" alt=""/></span>
           </div>
-        </section> -->
+        </section>
 
         <!-- Videos Section -->
-        <section id="videos" class="main special">
+        <!-- <section id="videos" class="main special">
           <header class="major">
             <h2>教學影片</h2>
           </header>
           <div class="content">
-            <!-- Video List -->
             <div id="video-wrap"></div>
           </div>
-          <!-- <ul class="features">
+           <ul class="features">
             <li>
               <span class="icon solid major style1 fa-code"></span>
               <h3>Ipsum consequat</h3>
@@ -119,10 +136,10 @@
           </ul>
            <footer class="major">
             <ul class="actions special">
-              <li><a href="generic.html" class="button">Learn More</a></li>
+              <li><a href="detail.html" class="button">Learn More</a></li>
             </ul>
-          </footer> -->
-        </section>
+          </footer> 
+        </section> -->
 
         <!-- About Us Section -->
         <section id="about-us" class="main special">
@@ -169,29 +186,10 @@
           </p>
           <!-- <footer class="major">
             <ul class="actions special">
-              <li><a href="generic.html" class="button">Learn More</a></li>
+              <li><a href="detail.html" class="button">Learn More</a></li>
             </ul>
           </footer> -->
         </section>
-
-        <!-- Get Started -->
-        <!-- <section id="cta" class="main special">
-          <header class="major">
-            <h2>Congue imperdiet</h2>
-            <p>
-              Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-              posuere. Nulla massa urna, fermentum eget quam aliquet.
-            </p>
-          </header>
-          <footer class="major">
-            <ul class="actions special">
-              <li>
-                <a href="generic.html" class="button primary">Get Started</a>
-              </li>
-              <li><a href="generic.html" class="button">Learn More</a></li>
-            </ul>
-          </footer>
-        </section> -->
       </div>
 
       <!-- Footer -->
@@ -250,6 +248,9 @@
     </div>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- production -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
@@ -257,6 +258,7 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/videos.js"></script>
+    <script src="assets/js/global-data.js"></script>
+    <script src="assets/js/pages/index.js"></script>
   </body>
 </html>
